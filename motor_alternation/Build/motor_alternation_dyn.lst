@@ -46,24 +46,40 @@
 0000	00 00 01 00 00 00 00 00 02 01 01 00 
 
 *		Instruction type: 0x00
-*		Code offset: 0x000002B4
-000C	B4 02 00 00 
+*		Code offset: 0x000003D0
+000C	D0 03 00 00 
 
 *
 *	1 REFERENCE(S) TO 8-BIT VAR AT BYTE #0 OF DATA BLOCK %I1
 0010	00 00 01 00 00 00 00 00 01 01 01 00 
 
 *		Instruction type: 0x00
-*		Code offset: 0x000002B8
-001C	B8 02 00 00 
+*		Code offset: 0x000003DC
+001C	DC 03 00 00 
+
+*
+*	1 REFERENCE(S) TO 8-BIT VAR AT BYTE #2 OF DATA BLOCK %Q1
+0020	00 00 01 00 02 00 00 00 02 01 01 00 
+
+*		Instruction type: 0x00
+*		Code offset: 0x000003D8
+002C	D8 03 00 00 
 
 *
 *	1 REFERENCE(S) TO 32-BIT VAR AT BYTE #0 OF DATA BLOCK %M60000
-0020	00 00 60 EA 00 00 00 00 00 04 01 00 
+0030	00 00 60 EA 00 00 00 00 00 04 01 00 
 
 *		Instruction type: 0x00
 *		Code offset: 0x00000154
-002C	54 01 00 00 
+003C	54 01 00 00 
+
+*
+*	1 REFERENCE(S) TO 8-BIT VAR AT BYTE #1 OF DATA BLOCK %Q1
+0040	00 00 01 00 01 00 00 00 02 01 01 00 
+
+*		Instruction type: 0x00
+*		Code offset: 0x000003D4
+004C	D4 03 00 00 
 
 
 ***************************************************
@@ -71,10 +87,10 @@
 ***************************************************
 
 NAME: sysCfgAnalogRes  - NUM: 1
-	 Patch - TYPE: 0x0 - CODE OFFSET: 0x0000042C
+	 Patch - TYPE: 0x0 - CODE OFFSET: 0x0000055C
 
 NAME: sysCfgProgInput  - NUM: 1
-	 Patch - TYPE: 0x0 - CODE OFFSET: 0x00000430
+	 Patch - TYPE: 0x0 - CODE OFFSET: 0x00000560
 
 NAME: sysDBase_SetExtTable  - NUM: 1
-	 Patch - TYPE: 0x0 - CODE OFFSET: 0x00000340
+	 Patch - TYPE: 0x0 - CODE OFFSET: 0x00000470

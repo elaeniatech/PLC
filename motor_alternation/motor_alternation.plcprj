@@ -68,7 +68,7 @@
 			<functions/>
 			<functionBlocks/>
 			<programs>
-				<program name="main" version="1.0.0" creationDate="1794365314" lastModifiedDate="1794370147" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="main" version="1.0.0" creationDate="1794365314" lastModifiedDate="1794371003" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="E0" type="SR"/>
@@ -79,6 +79,7 @@
 							<var name="E5" type="SR"/>
 							<var name="E2" type="SR"/>
 							<var name="E3" type="SR"/>
+							<var name="E4" type="SR"/>
 						</localVars>
 					</vars>
 					<iecDeclaration active="FALSE"/>
@@ -148,7 +149,7 @@
 									<startPin>O:4.2</startPin>
 									<endPin>V:2</endPin>
 								</conn>
-								<const id="K:3" error="false" name="100" x="6" y="6">
+								<const id="K:3" error="false" name="1000" x="6" y="6">
 									<pin>C:3</pin>
 								</const>
 								<var id="V:1" error="false" type="Input" name="button" x="7" y="4">
@@ -306,7 +307,194 @@
 									<outputPin name="q1" negated="false">C:4</outputPin>
 								</funBlock>
 							</network>
-							<network order="N:4" width="200" height="12" disabled="false" disableCondition="" error="false"/>
+							<network order="N:4" width="200" height="12" disabled="false" disableCondition="" error="false">
+								<conn id="C:0" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:3.0</endPin>
+								</conn>
+								<conn id="C:1" error="false">
+									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
+									<segment xEnd="8" yEnd="4"/>
+									<startPin>V:2</startPin>
+									<endPin>O:3.1</endPin>
+								</conn>
+								<conn id="C:2" error="false">
+									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
+									<startPin>O:3.2</startPin>
+									<endPin>FB:E2.s1</endPin>
+								</conn>
+								<conn id="C:3" error="false">
+									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
+									<segment xEnd="15" yEnd="4"/>
+									<startPin>V:4</startPin>
+									<endPin>FB:E2.r</endPin>
+								</conn>
+								<var id="V:1" error="false" type="Input" name="E1.q1" x="7" y="3">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:2" error="false" type="Input" name="stop" x="6" y="5">
+									<pin>C:1</pin>
+								</var>
+								<var id="V:4" error="false" type="Input" name="E3.q1" x="7" y="7">
+									<pin>C:3</pin>
+								</var>
+								<op id="O:3" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:0</inputPin>
+									<inputPin name="1" negated="false">C:1</inputPin>
+									<outputPin name="2" negated="false">C:2</outputPin>
+								</op>
+								<funBlock id="FB:E2" error="false" width="5" name="SR" x="15" y="3">
+									<inputPin name="s1" negated="false">C:2</inputPin>
+									<inputPin name="r" negated="false">C:3</inputPin>
+									<outputPin name="q1" negated="false"/>
+								</funBlock>
+							</network>
+							<network order="N:5" width="200" height="12" disabled="false" disableCondition="" error="false">
+								<conn id="C:0" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:2.0</endPin>
+								</conn>
+								<conn id="C:1" error="false">
+									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
+									<segment xEnd="8" yEnd="4"/>
+									<startPin>V:3</startPin>
+									<endPin>O:2.1</endPin>
+								</conn>
+								<conn id="C:2" error="false">
+									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
+									<startPin>O:2.2</startPin>
+									<endPin>FB:E3.s1</endPin>
+								</conn>
+								<conn id="C:3" error="false">
+									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
+									<segment xEnd="15" yEnd="4"/>
+									<startPin>V:4</startPin>
+									<endPin>FB:E3.r</endPin>
+								</conn>
+								<conn id="C:4" error="false">
+									<segment xStart="20" yStart="3" xEnd="22" yEnd="3"/>
+									<startPin>FB:E3.q1</startPin>
+									<endPin>V:5</endPin>
+								</conn>
+								<var id="V:1" error="false" type="Input" name="E2.q1" x="7" y="3">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:3" error="false" type="Input" name="start" x="6" y="5">
+									<pin>C:1</pin>
+								</var>
+								<var id="V:4" error="false" type="Input" name="E4.q1" x="7" y="7">
+									<pin>C:3</pin>
+								</var>
+								<var id="V:5" error="false" type="Output" name="B2" x="22" y="3">
+									<pin>C:4</pin>
+								</var>
+								<op id="O:2" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:0</inputPin>
+									<inputPin name="1" negated="false">C:1</inputPin>
+									<outputPin name="2" negated="false">C:2</outputPin>
+								</op>
+								<funBlock id="FB:E3" error="false" width="5" name="SR" x="15" y="3">
+									<inputPin name="s1" negated="false">C:2</inputPin>
+									<inputPin name="r" negated="false">C:3</inputPin>
+									<outputPin name="q1" negated="false">C:4</outputPin>
+								</funBlock>
+							</network>
+							<network order="N:6" width="200" height="12" disabled="false" disableCondition="" error="false">
+								<conn id="C:0" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:2.0</endPin>
+								</conn>
+								<conn id="C:1" error="false">
+									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
+									<segment xEnd="8" yEnd="4"/>
+									<startPin>V:3</startPin>
+									<endPin>O:2.1</endPin>
+								</conn>
+								<conn id="C:2" error="false">
+									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
+									<startPin>O:2.2</startPin>
+									<endPin>FB:E4.s1</endPin>
+								</conn>
+								<conn id="C:3" error="false">
+									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
+									<segment xEnd="15" yEnd="4"/>
+									<startPin>V:4</startPin>
+									<endPin>FB:E4.r</endPin>
+								</conn>
+								<var id="V:1" error="false" type="Input" name="E3.q1" x="7" y="3">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:3" error="false" type="Input" name="stop" x="6" y="5">
+									<pin>C:1</pin>
+								</var>
+								<var id="V:4" error="false" type="Input" name="E5.q1" x="7" y="7">
+									<pin>C:3</pin>
+								</var>
+								<op id="O:2" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:0</inputPin>
+									<inputPin name="1" negated="false">C:1</inputPin>
+									<outputPin name="2" negated="false">C:2</outputPin>
+								</op>
+								<funBlock id="FB:E4" error="false" width="5" name="SR" x="15" y="3">
+									<inputPin name="s1" negated="false">C:2</inputPin>
+									<inputPin name="r" negated="false">C:3</inputPin>
+									<outputPin name="q1" negated="false"/>
+								</funBlock>
+							</network>
+							<network order="N:7" width="200" height="12" disabled="false" disableCondition="" error="false">
+								<conn id="C:0" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:4.0</endPin>
+								</conn>
+								<conn id="C:1" error="false">
+									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
+									<segment xEnd="8" yEnd="4"/>
+									<startPin>V:2</startPin>
+									<endPin>O:4.1</endPin>
+								</conn>
+								<conn id="C:2" error="false">
+									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
+									<startPin>O:4.2</startPin>
+									<endPin>FB:E5.s1</endPin>
+								</conn>
+								<conn id="C:3" error="false">
+									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
+									<segment xEnd="15" yEnd="4"/>
+									<startPin>V:3</startPin>
+									<endPin>FB:E5.r</endPin>
+								</conn>
+								<conn id="C:4" error="false">
+									<segment xStart="20" yStart="3" xEnd="22" yEnd="3"/>
+									<startPin>FB:E5.q1</startPin>
+									<endPin>V:5</endPin>
+								</conn>
+								<var id="V:1" error="false" type="Input" name="E4.q1" x="7" y="3">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:2" error="false" type="Input" name="start" x="6" y="5">
+									<pin>C:1</pin>
+								</var>
+								<var id="V:3" error="false" type="Input" name="E0.q1" x="7" y="7">
+									<pin>C:3</pin>
+								</var>
+								<var id="V:5" error="false" type="Output" name="B3" x="22" y="3">
+									<pin>C:4</pin>
+								</var>
+								<op id="O:4" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:0</inputPin>
+									<inputPin name="1" negated="false">C:1</inputPin>
+									<outputPin name="2" negated="false">C:2</outputPin>
+								</op>
+								<funBlock id="FB:E5" error="false" width="5" name="SR" x="15" y="3">
+									<inputPin name="s1" negated="false">C:2</inputPin>
+									<inputPin name="r" negated="false">C:3</inputPin>
+									<outputPin name="q1" negated="false">C:4</outputPin>
+								</funBlock>
+							</network>
 						</FBD>
 					</sourceCode>
 				</program>
@@ -6038,12 +6226,13 @@ END_VAR
 			</src>
 		</aux>
 		<workspace>
-			<root name="motor_alternation" nextID="81">
+			<root name="motor_alternation" nextID="114">
 				<GlobalVars name="Global_vars" id="2"/>
 				<Pou name="main" id="5"/>
 				<GlobalVars name="I_O_mappings_LEDOut" id="9"/>
 				<GlobalVars name="I_O_mappings_ButInp" id="33"/>
 				<Pou name="initialize" id="49"/>
+				<GlobalVars name="Ungrouped_vars" id="89"/>
 			</root>
 		</workspace>
 	</sources>
