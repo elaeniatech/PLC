@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <plcProject caseSensitive="false" extendedIdNames="false" useCustomWorkspace="true" debugMode="false" extcheck="true" SFCControl="false" strictPointerCheck="true" verboseWarningMode="false" iecTypeConversionRules="false" PNContactsOnEachNetwork="false" LocalVarsFBAccess="false" strictEnumsCheck="true" copyWarningThreshold="200" version="2.11" useLD2="true" useXPLCFiles="false" useFBMethods="false" customSortOfProjectTree="false" autoDerefPointers="false">
 	<image>test.imgx</image>
-	<commSettings>Modbus:247,5000,M#COM:5,115200,N,8,1,H</commSettings>
+	<commSettings>Modbus:247,5000,M#COM:3,115200,N,8,1,H</commSettings>
 	<sources>
 		<main>
 			<resources>
@@ -5732,7 +5732,7 @@ END_PROGRAM
 			</src>
 		</aux>
 		<workspace>
-			<root name="test" nextID="10">
+			<root name="test" nextID="11">
 				<Pou name="main" id="1"/>
 				<GlobalVars name="Global_vars" id="2"/>
 			</root>
