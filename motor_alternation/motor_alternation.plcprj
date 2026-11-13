@@ -33,13 +33,13 @@
 					</var>
 				</group>
 				<group name="I_O_mappings_LEDOut" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="" version="1.0.0">
-					<var name="B1" type="BOOL">
+					<var name="B1_led" type="BOOL">
 						<address type="Q" typeVar="X" index="1" subIndex="0"/>
 					</var>
-					<var name="B2" type="BOOL">
+					<var name="B2_led" type="BOOL">
 						<address type="Q" typeVar="X" index="1" subIndex="1"/>
 					</var>
-					<var name="B3" type="BOOL">
+					<var name="B3_led" type="BOOL">
 						<address type="Q" typeVar="X" index="1" subIndex="2"/>
 					</var>
 				</group>
@@ -68,7 +68,7 @@
 			<functions/>
 			<functionBlocks/>
 			<programs>
-				<program name="main" version="1.0.0" creationDate="1794365314" lastModifiedDate="1794371003" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="main" version="1.0.0" creationDate="1794365314" lastModifiedDate="1794536892" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="E0" type="SR"/>
@@ -80,23 +80,26 @@
 							<var name="E2" type="SR"/>
 							<var name="E3" type="SR"/>
 							<var name="E4" type="SR"/>
+							<var name="B1C" type="CTU_UDINT"/>
+							<var name="B2C" type="CTU_UDINT"/>
+							<var name="B3C" type="CTU_UDINT"/>
 						</localVars>
 					</vars>
 					<iecDeclaration active="FALSE"/>
 					<sourceCode type="FBD">
 						<FBD>
-							<network order="N:1" width="200" height="12" disabled="false" disableCondition="" error="false">
+							<network order="N:1" width="200" height="14" disabled="false" disableCondition="" error="false">
 								<conn id="C:0" error="false">
 									<segment xStart="10" yStart="4" xEnd="10" yEnd="1"/>
 									<segment xEnd="28" yEnd="1"/>
 									<segment xEnd="28" yEnd="4"/>
 									<segment xEnd="31" yEnd="4"/>
 									<startPin>I:0</startPin>
-									<endPin>O:4.0</endPin>
+									<endPin>O:6.0</endPin>
 								</conn>
 								<conn id="C:1" error="false">
 									<segment xStart="7" yStart="4" xEnd="10" yEnd="4"/>
-									<startPin>V:1</startPin>
+									<startPin>V:2</startPin>
 									<endPin>I:0</endPin>
 								</conn>
 								<conn id="C:2" error="false">
@@ -110,70 +113,107 @@
 									<right>C:2</right>
 									<left>C:1</left>
 								</cross>
-								<conn id="C:8" error="false">
-									<segment xStart="21" yStart="4" xEnd="21" yEnd="8"/>
-									<segment xEnd="38" yEnd="8"/>
+								<conn id="C:11" error="false">
+									<segment xStart="21" yStart="4" xEnd="21" yEnd="9"/>
+									<segment xEnd="38" yEnd="9"/>
 									<startPin>I:1</startPin>
-									<endPin>V:6</endPin>
+									<endPin>O:10.0</endPin>
 								</conn>
-								<conn id="C:5" error="false">
+								<conn id="C:8" error="false">
 									<segment xStart="18" yStart="4" xEnd="21" yEnd="4"/>
 									<startPin>FB:BUT.Q</startPin>
 									<endPin>I:1</endPin>
 								</conn>
-								<conn id="C:7" error="false">
+								<conn id="C:10" error="false">
 									<segment xStart="21" yStart="4" xEnd="22" yEnd="4"/>
 									<startPin>I:1</startPin>
-									<endPin>F:5.#0</endPin>
+									<endPin>F:1.#0</endPin>
 								</conn>
 								<cross id="I:1" error="false" x="21" y="4">
 									<top/>
-									<bottom>C:8</bottom>
-									<right>C:7</right>
-									<left>C:5</left>
+									<bottom>C:11</bottom>
+									<right>C:10</right>
+									<left>C:8</left>
 								</cross>
 								<conn id="C:3" error="false">
 									<segment xStart="6" yStart="6" xEnd="11" yEnd="6"/>
 									<segment xEnd="11" yEnd="5"/>
-									<startPin>K:3</startPin>
+									<startPin>K:5</startPin>
 									<endPin>FB:BUT.PT</endPin>
 								</conn>
 								<conn id="C:4" error="false">
 									<segment xStart="27" yStart="4" xEnd="27" yEnd="5"/>
 									<segment xEnd="31" yEnd="5"/>
-									<startPin>F:5.#O</startPin>
-									<endPin>O:4.1</endPin>
+									<startPin>F:1.#O</startPin>
+									<endPin>O:6.1</endPin>
+								</conn>
+								<conn id="C:5" error="false">
+									<segment xStart="36" yStart="4" xEnd="38" yEnd="4"/>
+									<startPin>O:6.2</startPin>
+									<endPin>O:7.0</endPin>
 								</conn>
 								<conn id="C:6" error="false">
-									<segment xStart="36" yStart="4" xEnd="38" yEnd="4"/>
-									<startPin>O:4.2</startPin>
-									<endPin>V:2</endPin>
+									<segment xStart="42" yStart="4" xEnd="45" yEnd="4"/>
+									<startPin>O:7.2</startPin>
+									<endPin>V:3</endPin>
 								</conn>
-								<const id="K:3" error="false" name="1000" x="6" y="6">
+								<conn id="C:7" error="false">
+									<segment xStart="36" yStart="7" xEnd="38" yEnd="7"/>
+									<segment xEnd="38" yEnd="5"/>
+									<startPin>V:8</startPin>
+									<endPin>O:7.1</endPin>
+								</conn>
+								<conn id="C:9" error="false">
+									<segment xStart="42" yStart="9" xEnd="45" yEnd="9"/>
+									<startPin>O:10.2</startPin>
+									<endPin>V:4</endPin>
+								</conn>
+								<conn id="C:12" error="false">
+									<segment xStart="36" yStart="10" xEnd="38" yEnd="10"/>
+									<startPin>V:12</startPin>
+									<endPin>O:10.1</endPin>
+								</conn>
+								<const id="K:5" error="false" name="1000" x="6" y="6">
 									<pin>C:3</pin>
 								</const>
-								<var id="V:1" error="false" type="Input" name="button" x="7" y="4">
+								<var id="V:2" error="false" type="Input" name="button" x="7" y="4">
 									<pin>C:1</pin>
 								</var>
-								<var id="V:2" error="false" type="Output" name="start" x="38" y="4">
+								<var id="V:3" error="false" type="Output" name="start" x="45" y="4">
 									<pin>C:6</pin>
 								</var>
-								<var id="V:6" error="false" type="Output" name="stop" x="38" y="8">
-									<pin>C:8</pin>
+								<var id="V:4" error="false" type="Output" name="stop" x="45" y="9">
+									<pin>C:9</pin>
 								</var>
-								<op id="O:4" error="false" width="5" name="AND" x="31" y="4">
+								<var id="V:8" error="false" type="Input" name="start_sh" x="36" y="7">
+									<pin>C:7</pin>
+								</var>
+								<var id="V:12" error="false" type="Input" name="stop_sh" x="36" y="10">
+									<pin>C:12</pin>
+								</var>
+								<op id="O:6" error="false" width="5" name="AND" x="31" y="4">
 									<inputPin name="0" negated="false">C:0</inputPin>
 									<inputPin name="1" negated="false">C:4</inputPin>
+									<outputPin name="2" negated="false">C:5</outputPin>
+								</op>
+								<op id="O:7" error="false" width="4" name="OR" x="38" y="4">
+									<inputPin name="0" negated="false">C:5</inputPin>
+									<inputPin name="1" negated="false">C:7</inputPin>
 									<outputPin name="2" negated="false">C:6</outputPin>
 								</op>
-								<fun id="F:5" error="false" width="5" name="NOT" x="22" y="4">
-									<inputPin name="#0" negated="false">C:7</inputPin>
+								<op id="O:10" error="false" width="4" name="OR" x="38" y="9">
+									<inputPin name="0" negated="false">C:11</inputPin>
+									<inputPin name="1" negated="false">C:12</inputPin>
+									<outputPin name="2" negated="false">C:9</outputPin>
+								</op>
+								<fun id="F:1" error="false" width="5" name="NOT" x="22" y="4">
+									<inputPin name="#0" negated="false">C:10</inputPin>
 									<outputPin name="#O" negated="false">C:4</outputPin>
 								</fun>
 								<funBlock id="FB:BUT" error="false" width="7" imgwidth="48" imgheight="58" name="TON" x="11" y="4">
 									<inputPin name="IN" negated="false">C:2</inputPin>
 									<inputPin name="PT" negated="false">C:3</inputPin>
-									<outputPin name="Q" negated="false">C:5</outputPin>
+									<outputPin name="Q" negated="false">C:8</outputPin>
 									<outputPin name="ET" negated="false"/>
 								</funBlock>
 							</network>
@@ -258,53 +298,102 @@
 							</network>
 							<network order="N:3" width="200" height="12" disabled="false" disableCondition="" error="false">
 								<conn id="C:0" error="false">
-									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
-									<startPin>V:1</startPin>
-									<endPin>O:4.0</endPin>
+									<segment xStart="21" yStart="3" xEnd="21" yEnd="1"/>
+									<segment xEnd="22" yEnd="1"/>
+									<startPin>I:0</startPin>
+									<endPin>V:6</endPin>
 								</conn>
 								<conn id="C:1" error="false">
+									<segment xStart="21" yStart="3" xEnd="21" yEnd="7"/>
+									<segment xEnd="25" yEnd="7"/>
+									<startPin>I:0</startPin>
+									<endPin>FB:B1C.CU</endPin>
+								</conn>
+								<conn id="C:2" error="false">
+									<segment xStart="20" yStart="3" xEnd="21" yEnd="3"/>
+									<startPin>FB:E1.q1</startPin>
+									<endPin>I:0</endPin>
+								</conn>
+								<conn id="C:3" error="false">
+									<segment xStart="21" yStart="3" xEnd="22" yEnd="3"/>
+									<startPin>I:0</startPin>
+									<endPin>V:4</endPin>
+								</conn>
+								<cross id="I:0" error="false" x="21" y="3">
+									<top>C:0</top>
+									<bottom>C:1</bottom>
+									<right>C:3</right>
+									<left>C:2</left>
+								</cross>
+								<conn id="C:4" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:7.0</endPin>
+								</conn>
+								<conn id="C:5" error="false">
 									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
 									<segment xEnd="8" yEnd="4"/>
 									<startPin>V:2</startPin>
-									<endPin>O:4.1</endPin>
+									<endPin>O:7.1</endPin>
 								</conn>
-								<conn id="C:2" error="false">
+								<conn id="C:6" error="false">
 									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
-									<startPin>O:4.2</startPin>
+									<startPin>O:7.2</startPin>
 									<endPin>FB:E1.s1</endPin>
 								</conn>
-								<conn id="C:3" error="false">
+								<conn id="C:7" error="false">
 									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
 									<segment xEnd="15" yEnd="4"/>
 									<startPin>V:3</startPin>
 									<endPin>FB:E1.r</endPin>
 								</conn>
-								<conn id="C:4" error="false">
-									<segment xStart="20" yStart="3" xEnd="22" yEnd="3"/>
-									<startPin>FB:E1.q1</startPin>
+								<conn id="C:8" error="false">
+									<segment xStart="32" yStart="8" xEnd="35" yEnd="8"/>
+									<startPin>FB:B1C.CV</startPin>
 									<endPin>V:5</endPin>
 								</conn>
+								<conn id="C:9" error="false">
+									<segment xStart="22" yStart="8" xEnd="25" yEnd="8"/>
+									<startPin>V:8</startPin>
+									<endPin>FB:B1C.R</endPin>
+								</conn>
 								<var id="V:1" error="false" type="Input" name="E0.q1" x="7" y="3">
-									<pin>C:0</pin>
-								</var>
-								<var id="V:2" error="false" type="Input" name="start" x="6" y="5">
-									<pin>C:1</pin>
-								</var>
-								<var id="V:3" error="false" type="Input" name="E2.q1" x="7" y="7">
-									<pin>C:3</pin>
-								</var>
-								<var id="V:5" error="false" type="Output" name="B1" x="22" y="3">
 									<pin>C:4</pin>
 								</var>
-								<op id="O:4" error="false" width="5" name="AND" x="8" y="3">
-									<inputPin name="0" negated="false">C:0</inputPin>
-									<inputPin name="1" negated="false">C:1</inputPin>
-									<outputPin name="2" negated="false">C:2</outputPin>
+								<var id="V:2" error="false" type="Input" name="start" x="6" y="5">
+									<pin>C:5</pin>
+								</var>
+								<var id="V:3" error="false" type="Input" name="E2.q1" x="7" y="7">
+									<pin>C:7</pin>
+								</var>
+								<var id="V:4" error="false" type="Output" name="B1_sh" x="22" y="3">
+									<pin>C:3</pin>
+								</var>
+								<var id="V:5" error="false" type="Output" name="C1_sh" x="35" y="8">
+									<pin>C:8</pin>
+								</var>
+								<var id="V:6" error="false" type="Output" name="B1_led" x="22" y="1">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:8" error="false" type="Input" name="C1_res_sh" x="22" y="8">
+									<pin>C:9</pin>
+								</var>
+								<op id="O:7" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:4</inputPin>
+									<inputPin name="1" negated="false">C:5</inputPin>
+									<outputPin name="2" negated="false">C:6</outputPin>
 								</op>
 								<funBlock id="FB:E1" error="false" width="5" name="SR" x="15" y="3">
-									<inputPin name="s1" negated="false">C:2</inputPin>
-									<inputPin name="r" negated="false">C:3</inputPin>
-									<outputPin name="q1" negated="false">C:4</outputPin>
+									<inputPin name="s1" negated="false">C:6</inputPin>
+									<inputPin name="r" negated="false">C:7</inputPin>
+									<outputPin name="q1" negated="false">C:2</outputPin>
+								</funBlock>
+								<funBlock id="FB:B1C" error="false" width="7" imgwidth="48" imgheight="48" name="CTU_UDINT" x="25" y="7">
+									<inputPin name="CU" negated="false">C:1</inputPin>
+									<inputPin name="R" negated="false">C:9</inputPin>
+									<inputPin name="PV" negated="false"/>
+									<outputPin name="Q" negated="false"/>
+									<outputPin name="CV" negated="false">C:8</outputPin>
 								</funBlock>
 							</network>
 							<network order="N:4" width="200" height="12" disabled="false" disableCondition="" error="false">
@@ -352,53 +441,102 @@
 							</network>
 							<network order="N:5" width="200" height="12" disabled="false" disableCondition="" error="false">
 								<conn id="C:0" error="false">
-									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
-									<startPin>V:1</startPin>
-									<endPin>O:2.0</endPin>
+									<segment xStart="21" yStart="3" xEnd="21" yEnd="1"/>
+									<segment xEnd="22" yEnd="1"/>
+									<startPin>I:0</startPin>
+									<endPin>V:7</endPin>
 								</conn>
 								<conn id="C:1" error="false">
-									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
-									<segment xEnd="8" yEnd="4"/>
-									<startPin>V:3</startPin>
-									<endPin>O:2.1</endPin>
+									<segment xStart="21" yStart="3" xEnd="21" yEnd="7"/>
+									<segment xEnd="25" yEnd="7"/>
+									<startPin>I:0</startPin>
+									<endPin>FB:B2C.CU</endPin>
 								</conn>
 								<conn id="C:2" error="false">
-									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
-									<startPin>O:2.2</startPin>
-									<endPin>FB:E3.s1</endPin>
+									<segment xStart="20" yStart="3" xEnd="21" yEnd="3"/>
+									<startPin>FB:E3.q1</startPin>
+									<endPin>I:0</endPin>
 								</conn>
 								<conn id="C:3" error="false">
+									<segment xStart="21" yStart="3" xEnd="22" yEnd="3"/>
+									<startPin>I:0</startPin>
+									<endPin>V:4</endPin>
+								</conn>
+								<cross id="I:0" error="false" x="21" y="3">
+									<top>C:0</top>
+									<bottom>C:1</bottom>
+									<right>C:3</right>
+									<left>C:2</left>
+								</cross>
+								<conn id="C:4" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:6.0</endPin>
+								</conn>
+								<conn id="C:5" error="false">
+									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
+									<segment xEnd="8" yEnd="4"/>
+									<startPin>V:2</startPin>
+									<endPin>O:6.1</endPin>
+								</conn>
+								<conn id="C:6" error="false">
+									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
+									<startPin>O:6.2</startPin>
+									<endPin>FB:E3.s1</endPin>
+								</conn>
+								<conn id="C:7" error="false">
 									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
 									<segment xEnd="15" yEnd="4"/>
-									<startPin>V:4</startPin>
+									<startPin>V:3</startPin>
 									<endPin>FB:E3.r</endPin>
 								</conn>
-								<conn id="C:4" error="false">
-									<segment xStart="20" yStart="3" xEnd="22" yEnd="3"/>
-									<startPin>FB:E3.q1</startPin>
+								<conn id="C:8" error="false">
+									<segment xStart="32" yStart="8" xEnd="35" yEnd="8"/>
+									<startPin>FB:B2C.CV</startPin>
 									<endPin>V:5</endPin>
 								</conn>
+								<conn id="C:9" error="false">
+									<segment xStart="22" yStart="8" xEnd="25" yEnd="8"/>
+									<startPin>V:9</startPin>
+									<endPin>FB:B2C.R</endPin>
+								</conn>
 								<var id="V:1" error="false" type="Input" name="E2.q1" x="7" y="3">
-									<pin>C:0</pin>
-								</var>
-								<var id="V:3" error="false" type="Input" name="start" x="6" y="5">
-									<pin>C:1</pin>
-								</var>
-								<var id="V:4" error="false" type="Input" name="E4.q1" x="7" y="7">
-									<pin>C:3</pin>
-								</var>
-								<var id="V:5" error="false" type="Output" name="B2" x="22" y="3">
 									<pin>C:4</pin>
 								</var>
-								<op id="O:2" error="false" width="5" name="AND" x="8" y="3">
-									<inputPin name="0" negated="false">C:0</inputPin>
-									<inputPin name="1" negated="false">C:1</inputPin>
-									<outputPin name="2" negated="false">C:2</outputPin>
+								<var id="V:2" error="false" type="Input" name="start" x="6" y="5">
+									<pin>C:5</pin>
+								</var>
+								<var id="V:3" error="false" type="Input" name="E4.q1" x="7" y="7">
+									<pin>C:7</pin>
+								</var>
+								<var id="V:4" error="false" type="Output" name="B2_sh" x="22" y="3">
+									<pin>C:3</pin>
+								</var>
+								<var id="V:5" error="false" type="Output" name="C2_sh" x="35" y="8">
+									<pin>C:8</pin>
+								</var>
+								<var id="V:7" error="false" type="Output" name="B2_led" x="22" y="1">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:9" error="false" type="Input" name="C2_res_sh" x="22" y="8">
+									<pin>C:9</pin>
+								</var>
+								<op id="O:6" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:4</inputPin>
+									<inputPin name="1" negated="false">C:5</inputPin>
+									<outputPin name="2" negated="false">C:6</outputPin>
 								</op>
 								<funBlock id="FB:E3" error="false" width="5" name="SR" x="15" y="3">
-									<inputPin name="s1" negated="false">C:2</inputPin>
-									<inputPin name="r" negated="false">C:3</inputPin>
-									<outputPin name="q1" negated="false">C:4</outputPin>
+									<inputPin name="s1" negated="false">C:6</inputPin>
+									<inputPin name="r" negated="false">C:7</inputPin>
+									<outputPin name="q1" negated="false">C:2</outputPin>
+								</funBlock>
+								<funBlock id="FB:B2C" error="false" width="7" imgwidth="48" imgheight="48" name="CTU_UDINT" x="25" y="7">
+									<inputPin name="CU" negated="false">C:1</inputPin>
+									<inputPin name="R" negated="false">C:9</inputPin>
+									<inputPin name="PV" negated="false"/>
+									<outputPin name="Q" negated="false"/>
+									<outputPin name="CV" negated="false">C:8</outputPin>
 								</funBlock>
 							</network>
 							<network order="N:6" width="200" height="12" disabled="false" disableCondition="" error="false">
@@ -446,53 +584,102 @@
 							</network>
 							<network order="N:7" width="200" height="12" disabled="false" disableCondition="" error="false">
 								<conn id="C:0" error="false">
-									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
-									<startPin>V:1</startPin>
-									<endPin>O:4.0</endPin>
+									<segment xStart="21" yStart="3" xEnd="21" yEnd="1"/>
+									<segment xEnd="22" yEnd="1"/>
+									<startPin>I:0</startPin>
+									<endPin>V:7</endPin>
 								</conn>
 								<conn id="C:1" error="false">
+									<segment xStart="21" yStart="3" xEnd="21" yEnd="7"/>
+									<segment xEnd="25" yEnd="7"/>
+									<startPin>I:0</startPin>
+									<endPin>FB:B3C.CU</endPin>
+								</conn>
+								<conn id="C:2" error="false">
+									<segment xStart="20" yStart="3" xEnd="21" yEnd="3"/>
+									<startPin>FB:E5.q1</startPin>
+									<endPin>I:0</endPin>
+								</conn>
+								<conn id="C:3" error="false">
+									<segment xStart="21" yStart="3" xEnd="22" yEnd="3"/>
+									<startPin>I:0</startPin>
+									<endPin>V:4</endPin>
+								</conn>
+								<cross id="I:0" error="false" x="21" y="3">
+									<top>C:0</top>
+									<bottom>C:1</bottom>
+									<right>C:3</right>
+									<left>C:2</left>
+								</cross>
+								<conn id="C:4" error="false">
+									<segment xStart="7" yStart="3" xEnd="8" yEnd="3"/>
+									<startPin>V:1</startPin>
+									<endPin>O:6.0</endPin>
+								</conn>
+								<conn id="C:5" error="false">
 									<segment xStart="6" yStart="5" xEnd="8" yEnd="5"/>
 									<segment xEnd="8" yEnd="4"/>
 									<startPin>V:2</startPin>
-									<endPin>O:4.1</endPin>
+									<endPin>O:6.1</endPin>
 								</conn>
-								<conn id="C:2" error="false">
+								<conn id="C:6" error="false">
 									<segment xStart="13" yStart="3" xEnd="15" yEnd="3"/>
-									<startPin>O:4.2</startPin>
+									<startPin>O:6.2</startPin>
 									<endPin>FB:E5.s1</endPin>
 								</conn>
-								<conn id="C:3" error="false">
+								<conn id="C:7" error="false">
 									<segment xStart="7" yStart="7" xEnd="15" yEnd="7"/>
 									<segment xEnd="15" yEnd="4"/>
 									<startPin>V:3</startPin>
 									<endPin>FB:E5.r</endPin>
 								</conn>
-								<conn id="C:4" error="false">
-									<segment xStart="20" yStart="3" xEnd="22" yEnd="3"/>
-									<startPin>FB:E5.q1</startPin>
+								<conn id="C:8" error="false">
+									<segment xStart="32" yStart="8" xEnd="35" yEnd="8"/>
+									<startPin>FB:B3C.CV</startPin>
 									<endPin>V:5</endPin>
 								</conn>
+								<conn id="C:9" error="false">
+									<segment xStart="22" yStart="8" xEnd="25" yEnd="8"/>
+									<startPin>V:9</startPin>
+									<endPin>FB:B3C.R</endPin>
+								</conn>
 								<var id="V:1" error="false" type="Input" name="E4.q1" x="7" y="3">
-									<pin>C:0</pin>
-								</var>
-								<var id="V:2" error="false" type="Input" name="start" x="6" y="5">
-									<pin>C:1</pin>
-								</var>
-								<var id="V:3" error="false" type="Input" name="E0.q1" x="7" y="7">
-									<pin>C:3</pin>
-								</var>
-								<var id="V:5" error="false" type="Output" name="B3" x="22" y="3">
 									<pin>C:4</pin>
 								</var>
-								<op id="O:4" error="false" width="5" name="AND" x="8" y="3">
-									<inputPin name="0" negated="false">C:0</inputPin>
-									<inputPin name="1" negated="false">C:1</inputPin>
-									<outputPin name="2" negated="false">C:2</outputPin>
+								<var id="V:2" error="false" type="Input" name="start" x="6" y="5">
+									<pin>C:5</pin>
+								</var>
+								<var id="V:3" error="false" type="Input" name="E0.q1" x="7" y="7">
+									<pin>C:7</pin>
+								</var>
+								<var id="V:4" error="false" type="Output" name="B3_sh" x="22" y="3">
+									<pin>C:3</pin>
+								</var>
+								<var id="V:5" error="false" type="Output" name="C3_sh" x="35" y="8">
+									<pin>C:8</pin>
+								</var>
+								<var id="V:7" error="false" type="Output" name="B3_led" x="22" y="1">
+									<pin>C:0</pin>
+								</var>
+								<var id="V:9" error="false" type="Input" name="C3_res_sh" x="22" y="8">
+									<pin>C:9</pin>
+								</var>
+								<op id="O:6" error="false" width="5" name="AND" x="8" y="3">
+									<inputPin name="0" negated="false">C:4</inputPin>
+									<inputPin name="1" negated="false">C:5</inputPin>
+									<outputPin name="2" negated="false">C:6</outputPin>
 								</op>
 								<funBlock id="FB:E5" error="false" width="5" name="SR" x="15" y="3">
-									<inputPin name="s1" negated="false">C:2</inputPin>
-									<inputPin name="r" negated="false">C:3</inputPin>
-									<outputPin name="q1" negated="false">C:4</outputPin>
+									<inputPin name="s1" negated="false">C:6</inputPin>
+									<inputPin name="r" negated="false">C:7</inputPin>
+									<outputPin name="q1" negated="false">C:2</outputPin>
+								</funBlock>
+								<funBlock id="FB:B3C" error="false" width="7" imgwidth="48" imgheight="48" name="CTU_UDINT" x="25" y="7">
+									<inputPin name="CU" negated="false">C:1</inputPin>
+									<inputPin name="R" negated="false">C:9</inputPin>
+									<inputPin name="PV" negated="false"/>
+									<outputPin name="Q" negated="false"/>
+									<outputPin name="CV" negated="false">C:8</outputPin>
 								</funBlock>
 							</network>
 						</FBD>
@@ -6214,19 +6401,35 @@ END_PROGRAM
 			</src>
 			<src fullXml="false" name="SharedVars.plc" order="0" hidden="false">
 				<![CDATA[VAR_GLOBAL
+{ G: "INPUTS" }
+start_sh AT %IB4.0 : BOOL;
+{ G: "INPUTS" }
+stop_sh AT %IB4.1 : BOOL;
+{ G: "INPUTS" }
+C1_res_sh AT %IB4.2 : BOOL;
+{ G: "INPUTS" }
+C2_res_sh AT %IB4.3 : BOOL;
+{ G: "INPUTS" }
+C3_res_sh AT %IB4.4 : BOOL;
 { G: "OUTPUTS" }
-B1 AT %QB4.0 : BOOL;
+B1_sh AT %QB4.0 : BOOL;
 { G: "OUTPUTS" }
-B2 AT %QB4.1 : BOOL;
+B2_sh AT %QB4.1 : BOOL;
 { G: "OUTPUTS" }
-B3 AT %QB4.2 : BOOL;
+B3_sh AT %QB4.2 : BOOL;
+{ G: "OUTPUTS" }
+C1_sh AT %QB4.4 : UDINT;
+{ G: "OUTPUTS" }
+C2_sh AT %QB4.8 : UDINT;
+{ G: "OUTPUTS" }
+C3_sh AT %QB4.12 : UDINT;
 END_VAR
 
 ]]>
 			</src>
 		</aux>
 		<workspace>
-			<root name="motor_alternation" nextID="114">
+			<root name="motor_alternation" nextID="633">
 				<GlobalVars name="Global_vars" id="2"/>
 				<Pou name="main" id="5"/>
 				<GlobalVars name="I_O_mappings_LEDOut" id="9"/>
@@ -6308,13 +6511,13 @@ END_VAR
 						</ioMappings_RelayOut>
 						<ioMappings_LEDOut>
 							<ioMapping id="0">
-								<label>B1</label>
+								<label>B1_led</label>
 							</ioMapping>
 							<ioMapping id="1">
-								<label>B2</label>
+								<label>B2_led</label>
 							</ioMapping>
 							<ioMapping id="2">
-								<label>B3</label>
+								<label>B3_led</label>
 							</ioMapping>
 							<ioMapping id="3">
 								<label/>
@@ -6334,34 +6537,229 @@ END_VAR
 								<label>button</label>
 							</ioMapping>
 						</ioMappings_ButInp>
-						<sharedInputs/>
+						<sharedInputs>
+							<sharedIO label="start_sh" type="BOOL" size=""/>
+							<sharedIO label="stop_sh" type="BOOL" size=""/>
+							<sharedIO label="C1_res_sh" type="BOOL" size=""/>
+							<sharedIO label="C2_res_sh" type="BOOL" size=""/>
+							<sharedIO label="C3_res_sh" type="BOOL" size=""/>
+						</sharedInputs>
 						<sharedOutputs>
-							<sharedIO label="B1" type="BOOL" size=""/>
-							<sharedIO label="B2" type="BOOL" size=""/>
-							<sharedIO label="B3" type="BOOL" size=""/>
+							<sharedIO label="B1_sh" type="BOOL" size=""/>
+							<sharedIO label="B2_sh" type="BOOL" size=""/>
+							<sharedIO label="B3_sh" type="BOOL" size=""/>
+							<sharedIO label="C1_sh" type="UDINT" size=""/>
+							<sharedIO label="C2_sh" type="UDINT" size=""/>
+							<sharedIO label="C3_sh" type="UDINT" size=""/>
 						</sharedOutputs>
 					</config>
 					<RS485 protocol="" mode="0" baudRate="38400" serialMode="none,8,1" slaveAddress="1" COMnumber="2" rsmode="1" netId="0" maxSlaves="32" serCfg="1"/>
 					<CANopen id="0" protocol="" mode="0" nodeID="127" baudRate="250000" hbTime="0" syncCOBID="128" syncCycle="0" networkID="0" slaveNodeID="1" slaveDeviceType="301" slaveSyncCOBID="128" slaveSyncCycle="0" slaveManufacturerDeviceName="" slaveManufacturerHardwareVer="" slaveManufacturerSoftwareVer="" slaveGuardTime="200" slaveLifeTimeFactor="3" slaveConsumerHeartbeatTime="0" slaveProducerHeartbeatTime="0" slaveVendorID="0" slaveProductCode="0" slaveRevisionNumber="0" slaveSerialNumber="0" slaveCfgGranularity="8" slaveCfgCOBIDAutoAssignment="1" slaveCfgMaxTPDONum="8" slaveCfgMaxRPDONum="8"/>
 					<Ethernet protocol="" enableMaster="0" enableSlave="1" enableSlaveRtuGateway="0" rtuGatewayDefaultTimeout="100" slavePort="502" IPAddress="" subnetMask="" defaultGateway="" DNS="" timeout="5000" enableNTP="0" allowProgrammingConnection="0" connectionMode="off"/>
-					<Wifi staticConfiguration="0" IPAddress="" subnetMask="" defaultGateway="" DNS="" SSID="" password="" enableNTP="0"/>
-					<SketchContent>
-// shared variables can be accessed with PLCIn.varname and PLCOut.varname
+					<Wifi staticConfiguration="0" IPAddress="" subnetMask="" defaultGateway="" DNS="" SSID="RM_interior" password="U2FsdGVkX18P7t+idSiRunvDBehkSIwTwgbiQFQTNvg=" enableNTP="0"/>
+					<SketchContent>#include &lt;WiFi.h&gt;
+#include &lt;ArduinoIoTCloud.h&gt;
+#include &lt;Arduino_ConnectionHandler.h&gt;
 
-// enable direct access to local and expansion I/O variables
-// #include &lt;IOPlugin.h&gt;
+// Wi-Fi credentials
+const char SSID[] = "RM_interior";
+const char PASS[] = "RM20JUNE";
+
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+
+// Automatic pressure commands (read-only on the dashboard)
+bool Start = false;
+bool Stop = false;
+
+// Reset the counters
+bool C1_res = false;
+bool C2_res = false;
+bool C3_res = false;
+
+// Cloud monitoring
+int Counter_M1 = 0;
+int Counter_M2 = 0;
+int Counter_M3 = 0;
+
+bool Motor_1 = false;
+bool Motor_2 = false;
+bool Motor_3 = false;
+
+float Pressure_bar = 7.0f;
+float Consumption_CFM = 0.0f;
+
+const float VOLUME_LITERS = 500.0f;
+const float COMPRESSOR_CFM = 30.0f;
+const float LOW_PRESSURE_BAR = 6.0f;
+const float HIGH_PRESSURE_BAR = 8.0f;
+
+void updatePressureSimulation();
+
+void initProperties()
+{
+  ArduinoCloud.addProperty(
+    C1_res, READWRITE, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    C2_res, READWRITE, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    C3_res, READWRITE, ON_CHANGE, NULL
+  );
+
+  
+  // Commands: pressure simulation -&gt; PLC and dashboard
+  ArduinoCloud.addProperty(
+    Start, READ, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    Stop, READ, ON_CHANGE, NULL
+  );
+
+  // Counters: PLC -&gt; dashboard
+  ArduinoCloud.addProperty(
+    Counter_M1, READ, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    Counter_M2, READ, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    Counter_M3, READ, ON_CHANGE, NULL
+  );
+
+  // Motor states: PLC -&gt; dashboard
+  ArduinoCloud.addProperty(
+    Motor_1, READ, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    Motor_2, READ, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+    Motor_3, READ, ON_CHANGE, NULL
+  );
+  
+  // Dashboard consumption setting and simulated tank pressure
+  ArduinoCloud.addProperty(
+      Consumption_CFM, READWRITE, ON_CHANGE, NULL
+  );
+  ArduinoCloud.addProperty(
+      Pressure_bar, READ, ON_CHANGE, NULL
+  );
+}
 
 void setup()
 {
+  // Disable Cloud debug output during PLC USB testing.
+  setDebugMessageLevel(-1);
 
+  initProperties();
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 }
 
 void loop()
 {
+	
+  // Read PLC monitoring values.
+  Motor_1 = PLCOut.B1_sh;
+  Motor_2 = PLCOut.B2_sh;
+  Motor_3 = PLCOut.B3_sh;
 
+  Counter_M1 = PLCOut.C1_sh;
+  Counter_M2 = PLCOut.C2_sh;
+  Counter_M3 = PLCOut.C3_sh;
+
+  // Exchange values with Arduino Cloud.
+  ArduinoCloud.update();
+  updatePressureSimulation();
+
+  // Pass Cloud commands to the PLC.
+  PLCIn.start_sh = Start;
+  PLCIn.stop_sh = Stop;
+  
+  // Pass Cloud commands to the PLC.
+  PLCIn.C1_res_sh = C1_res;
+  PLCIn.C2_res_sh = C2_res;
+  PLCIn.C3_res_sh = C3_res;
 }
-				</SketchContent>
-					<SketchLibraries/>
+
+void updatePressureSimulation()
+{
+  static unsigned long previousMs = 0;
+  static bool initialized = false;
+  static bool airRequested = false;
+
+  const unsigned long now = millis();
+
+  if (!initialized) {
+    previousMs = now;
+    initialized = true;
+    return;
+  }
+
+  const unsigned long elapsedMs = now - previousMs;
+
+  // Update once per second without blocking the PLC.
+  if (elapsedMs &lt; 1000UL) {
+    return;
+  }
+
+  previousMs = now;
+  const float dtSeconds = elapsedMs / 1000.0f;
+
+  // Consumption range: zero to one compressor's capacity.
+  if (Consumption_CFM &lt; 0.0f) {
+    Consumption_CFM = 0.0f;
+  }
+
+  if (Consumption_CFM &gt; COMPRESSOR_CFM) {
+    Consumption_CFM = COMPRESSOR_CFM;
+  }
+
+  // Assume an active motor means the compressor delivers air.
+  const int runningCompressors =
+      (PLCOut.B1_sh ? 1 : 0)
+    + (PLCOut.B2_sh ? 1 : 0)
+    + (PLCOut.B3_sh ? 1 : 0);
+
+  const float supplyCFM =
+      runningCompressors * COMPRESSOR_CFM;
+
+  Pressure_bar +=
+      (0.478f / VOLUME_LITERS)
+    * (supplyCFM - Consumption_CFM)
+    * dtSeconds;
+
+  // Gauge pressure cannot fall below zero in this model.
+  if (Pressure_bar &lt; 0.0f) {
+    Pressure_bar = 0.0f;
+  }
+
+  // Hold each command until the next one-second simulation update.
+  Start = false;
+  Stop = false;
+
+  if (!airRequested &amp;&amp; Pressure_bar &lt;= LOW_PRESSURE_BAR) {
+    Start = true;
+    airRequested = true;
+  }
+  else if (airRequested &amp;&amp; Pressure_bar &gt;= HIGH_PRESSURE_BAR) {
+    Stop = true;
+    airRequested = false;
+  }
+}</SketchContent>
+					<SketchLibraries>
+						<SketchLibrary name="ArduinoIoTCloud" ver="2.10.0"/>
+						<SketchLibrary name="Arduino_ConnectionHandler" ver="1.3.0"/>
+						<SketchLibrary name="Arduino_NetworkConfigurator" ver="0.5.1"/>
+						<SketchLibrary name="Arduino_CloudUtils" ver="1.2.1"/>
+						<SketchLibrary name="Arduino_KVStore" ver="1.0.1"/>
+						<SketchLibrary name="ArduinoBLE" ver="2.1.0"/>
+						<SketchLibrary name="Arduino_SecureElement" ver="1.0.1"/>
+						<SketchLibrary name="ArduinoECCX08" ver="1.4.1"/>
+						<SketchLibrary name="ArduinoMqttClient" ver="0.1.8"/>
+						<SketchLibrary name="ArduinoBearSSL" ver="1.8.0"/>
+						<SketchLibrary name="ArduinoHttpClient" ver="0.6.2"/>
+					</SketchLibraries>
 					<IOExpansions/>
 				</ArduinoOpta_1p3>
 			</data>

@@ -1,0 +1,23 @@
+The library AlPlc_Opta has been automatically added from sketch project.
+The library ArduinoBLE has been automatically added from sketch project.
+The library ArduinoBearSSL has been automatically added from sketch project.
+The library ArduinoECCX08 has been automatically added from sketch project.
+The library ArduinoHttpClient has been automatically added from sketch project.
+The library ArduinoIoTCloud has been automatically added from sketch project.
+The library ArduinoMqttClient has been automatically added from sketch project.
+The library ArduinoRS485 has been automatically added from sketch project.
+The library Arduino_CloudUtils has been automatically added from sketch project.
+The library Arduino_ConnectionHandler has been automatically added from sketch project.
+The library Arduino_DebugUtils has been automatically added from sketch project.
+The library Arduino_KVStore has been automatically added from sketch project.
+The library Arduino_NetworkConfigurator has been automatically added from sketch project.
+The library Arduino_Opta_Blueprint has been automatically added from sketch project.
+The library Arduino_Portenta_OTA has been automatically added from sketch project.
+The library Arduino_SecureElement has been automatically added from sketch project.
+The library Arduino_SerialUpdater has been automatically added from sketch project.
+The library NTPClient has been automatically added from sketch project.
+Library AlPlc_Opta has been declared precompiled:
+Precompiled library in "C:\Users\Juanjo\AppData\Local\T\A\internal\AlPlc_Opta_1.3.2_a3e818d5560b51c1\AlPlc_Opta\src\cortex-m7\fpv5-d16-softfp" not found
+Using precompiled library in C:\Users\Juanjo\AppData\Local\T\A\internal\AlPlc_Opta_1.3.2_a3e818d5560b51c1\AlPlc_Opta\src\cortex-m7
+Sketch uses 760716 bytes (38%) of program storage space. Maximum is 1966080 bytes.
+Global variables use 205592 bytes (39%) of dynamic memory, leaving 318032 bytes for local variables. Maximum is 523624 bytes.
